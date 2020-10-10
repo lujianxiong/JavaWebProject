@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace:命名空间，值对应的是DAO层接口 -->
+<mapper namespace="com.daxiong.demo.dao.AdminDAO">
+<!-- 登录实现方式1 -->
+<!-- <select id="selectAdmin" resultType="Admin" parameterType="Admin">
+
+		select * from admin where username=#{username} and password=#{password}
+	</select> -->
+	
+	<select id="selectAdmin" resultType="Admin">
+		select * from admin where username=#{user} and password=#{pwd}
+	</select>
+</mapper>

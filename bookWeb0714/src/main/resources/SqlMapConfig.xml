@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+	<!-- 配置properties文件 ，配置数据数据源  使用${} 读取配置信息-->
+	<properties resource="db.properties"></properties>
+	
+	<!-- 起别名 -->
+	<typeAliases>
+		<!-- 给指定的包起别名，这个包中所有的类的别名就是类名 -->
+		<package name="com.daxiong.demo.entity"/>
+	</typeAliases>
+	
+	<!-- mybatis运行环境 -->	
+	 <environments default="default">
+        <environment id="default">
+            <transactionManager type="JDBC"/>
+            <!--设置数据库连接池-->
+            <dataSource type="POOLED">
+            	<!-- 数据源 -->
+                <property name="driver" value="${jdbc.driver}"></property>  
+          		<property name="url" value="${jdbc.url}"></property>  
+          		<property name="username" value="${jdbc.username}"></property>  
+          		<property name="password" value="${jdbc.password}"></property>
+            </dataSource>
+        </environment>
+    </environments>
+    
+    <!-- 配置mapper映射文件 -->
+    <mappers>
+    	<mapper resource="sqlmap/bookMapper.xml"/>
+    	<mapper resource="sqlmap/adminMapper.xml"/>
+    </mappers>
+</configuration>

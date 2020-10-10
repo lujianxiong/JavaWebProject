@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace:命名空间，值对应的是DAO层接口 -->
+<mapper namespace="com.daxiong.demo.dao.BookDAO">
+	<select id="findAll" resultType="Book">
+		select id,bno,bname,author,price,press from book
+	</select>
+	
+	<select id="selectByBname" resultType="Book">
+		select id,bno,bname,author,price,press from book where bname like '%${value}%'
+	</select>
+	
+	<delete id="delete">
+		delete from book where id=#{id}
+	</delete>
+	
+	<insert id="insertBook" parameterType="Book">
+		insert into book(bno,bname,author,price,press) values(#{bno},#{bname},#{author},#{price},#{press})
+	</insert>
+	
+	<select id="find" resultType="Book">
+		select id,bno,bname,author,price,press from book where id=#{id}
+	</select>
+	
+	<update id="updateBook" parameterType="Book">
+		update book set bname=#{bname},author=#{author},price=#{price},press=#{press} where id=#{id}
+	</update>
+	
+</mapper>

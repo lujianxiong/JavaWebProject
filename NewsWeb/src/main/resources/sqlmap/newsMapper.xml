@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace:命名空间，值对应的是DAO层接口 -->
+<mapper namespace="com.news.dao.NewsDAO">
+	
+	<insert id="addNews">
+		insert into news(title,content) values(#{title},#{content})
+	</insert>
+	
+	<select id="findAll" resultType="News">
+		select id,title,content from news
+	</select>
+	
+	<delete id="delete">
+		delete from news where id=#{id}
+	</delete>
+	
+	<select id="findById" resultType="News">
+		select id,title,content from news where id=#{id}
+	</select>
+	
+	<update id="update" parameterType="News">
+		update news set title=#{title},content=#{content} where id=#{id}
+	</update>
+	
+	<select id="searchByTitle" resultType="News">
+		select id,title,content from news where title like '%${title}%'
+	</select>
+	
+</mapper>

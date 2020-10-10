@@ -1,0 +1,12 @@
+1、实现登录及主页信息
+    封装实体类
+    接口设计
+ 目前Java中页面使用jsp，使用jstl el实现数据动态渲染
+ 
+ 
+ java：
+   JavaSE java基础
+   JavaEE 企业级开发
+   JavaME 嵌入式开发
+ 
+ servlet:服务端小程序（本质就是一个类，这个类实现了web相关的接口  JavaEE部分）
